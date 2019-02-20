@@ -18,9 +18,8 @@ public class TraceTagAspectj {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Before("execution(* **(..))")
-    public void i(JoinPoint joinPoint) {
+    public void before(JoinPoint joinPoint) {
         Trace.beginSection(joinPoint.getSignature().toString());
-        Log.e("Test", "methodSignature:" + joinPoint.getSignature().toString());
     }
 
     /**
@@ -28,7 +27,7 @@ public class TraceTagAspectj {
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @After("execution(* **(..))")
-    public void o() {
+    public void after() {
         Trace.endSection();
     }
 }
